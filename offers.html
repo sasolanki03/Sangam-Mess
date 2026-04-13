@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Specials - Onam Sadhya | Sangam Mess</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <style>
+        .sadhya-hero {
+            background-color: var(--dark-green);
+            padding: 5rem 2rem;
+            color: var(--light-green);
+            text-align: center;
+            background-image: linear-gradient(rgba(20,48,19,0.8), rgba(20,48,19,0.9)), url('assets/images/banana_leaf_texture.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .sadhya-hero h1 { color: var(--soft-gold); font-size: 4.5rem; margin-bottom: 0px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .sadhya-hero h2 { color: var(--cream); font-size: 2.2rem; display: inline-block; border-bottom: 2px solid var(--soft-gold); padding-bottom: 0.5rem; margin-bottom: 1rem;}
+        
+        .sadhya-details {
+            max-width: 1200px;
+            margin: -4rem auto 4rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem 3rem 3rem; 
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+            border: 2px solid var(--soft-gold);
+        }
+
+        .premium-ribbon {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--maroon);
+            color: var(--soft-gold);
+            padding: 0.8rem 3rem;
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(139, 30, 30, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 20;
+            white-space: nowrap;
+        }
+
+        .sadhya-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-pill {
+            background: linear-gradient(135deg, var(--white) 0%, var(--cream) 100%);
+            color: var(--dark-green);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .meta-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+            border-color: var(--soft-gold);
+        }
+
+        .meta-pill.primary {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: var(--soft-gold);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .meta-pill.primary:hover {
+            box-shadow: 0 8px 25px rgba(43, 83, 41, 0.4);
+        }
+
+        .view-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+            padding-bottom: 1.5rem;
+        }
+
+        .view-btn {
+            background: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn.active, .view-btn:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .sadhya-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sadhya-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0; width: 5px;
+            background: var(--soft-gold);
+        }
+
+        .sadhya-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .item-thumb {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(212, 175, 55, 0.6);
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .item-badge {
+            background: var(--cream);
+            color: var(--maroon);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid rgba(139,30,30,0.1);
+            flex-shrink: 0;
+        }
+
+        .item-content { flex-grow: 1; }
+
+        .item-content h4 {
+            margin: 0 0 4px 0;
+            font-size: 1.1rem;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .item-tag {
+            font-size: 0.65rem;
+            background: var(--maroon);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .item-content p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: rgba(0,0,0,0.6);
+        }
+
+        .hidden-item { display: none !important; }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(139,30,30, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(139,30,30, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139,30,30, 0); }
+        }
+
+        /* Plate View Visualizer */
+        .plate-view {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 700px;
+            background-image: url('assets/images/sadhya_plate.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 1rem;
+            overflow: hidden;
+            border: 2px solid var(--primary-green);
+        }
+
+        .plate-item {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark-green);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--soft-gold);
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+        
+        .plate-item:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--maroon);
+            color: var(--white);
+            z-index: 100;
+        }
+
+        /* Audio Player Toggle */
+        .music-toggle {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .music-toggle:hover { background: var(--maroon); border-color: var(--maroon); transform: scale(1.1); }
+    </style>
+</head>
+<body class="leaf-texture">
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Sangam Mess Logo">
+                <span>Sangam Mess</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="offers.html" class="active">Festival Specials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    
+    <div class="sadhya-hero animate-on-scroll">
+        <button class="music-toggle" id="bgMusicToggle" title="Play Festive Music"><i class="fa-solid fa-music"></i></button>
+        <audio id="festiveAudio" loop>
+            <source src="assets/audio/Background.mp3" type="audio/mpeg">
+        </audio>
+        <h2>Grand Festival Feast</h2>
+        <h1>Onam Sadhya</h1>
+        <p style="color:var(--cream); font-size:1.2rem; margin-top:1rem;">Pre-bookings open for September 2025!</p>
+        <div style="height: 4rem;"></div>
+    </div>
+
+    <div class="sadhya-details animate-on-scroll delay-100">
+        <div class="premium-ribbon"><i class="fa-solid fa-leaf"></i> 26-Item Traditional Feast</div>
+        
+        <div class="sadhya-meta">
+            <div class="meta-pill"><i class="fa-solid fa-box-open"></i> PARCEL ONLY</div>
+            <div class="meta-pill"><i class="fa-solid fa-tag"></i> Rs. 350/-</div>
+            <button class="meta-pill primary add-to-cart-btn" data-name="Onam Sadhya Full Set" data-price="350"><i class="fa-solid fa-cart-plus"></i> Pre-Book Set</button>
+        </div>
+        
+        <p class="text-center" style="font-size:1.15rem; opacity:0.8; margin-bottom:2.5rem; max-width:800px; margin-left:auto; margin-right:auto;">Experience the most authentic traditional feast, carefully packed and delivered in a premium box with freshly cut banana leaves.</p>
+
+        <div class="view-controls">
+            <button class="view-btn active" id="btnGridView"><i class="fa-solid fa-list"></i> Grid View</button>
+            <button class="view-btn" id="btnPlateView"><i class="fa-solid fa-eye"></i> Visual Plating</button>
+        </div>
+<div class="items-grid animate-on-scroll delay-200" id="sadhyaGrid">
+
+    <div class="sadhya-item animate-on-scroll delay-100  grid-item-row">
+        <div class="item-badge">1</div>
+        <div class="item-content">
+            <h4>Rice </h4>
+            <p><i class="fa-solid fa-bowl-rice"></i> 1 Portion</p>
+        </div>
+    </div>
+    <div class="sadhya-item animate-on-scroll delay-200  grid-item-row">
+        <div class="item-badge">2</div>
+        <div class="item-content">
+            <h4>Parippu </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 1 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item animate-on-scroll delay-0  grid-item-row">
+        <div class="item-badge">3</div>
+        <div class="item-content">
+            <h4>Ghee </h4>
+            <p><i class="fa-solid fa-spoon"></i> 10ml</p>
+        </div>
+    </div>
+    <div class="sadhya-item animate-on-scroll delay-100  grid-item-row">
+        <div class="item-badge">4</div>
+        <img src="assets/images/sadhya_sambar.png" class="item-thumb" alt="Sambar">
+        <div class="item-content">
+            <h4>Sambar </h4>
+            <p><i class="fa-solid fa-mug-hot"></i> 1.5 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item animate-on-scroll delay-200  grid-item-row">
+        <div class="item-badge">5</div>
+        <img src="assets/images/sadhya_avial.png" class="item-thumb" alt="Avial">
+        <div class="item-content">
+            <h4>Avial <span class="item-tag">Chef Special</span></h4>
+            <p><i class="fa-solid fa-carrot"></i> 100g</p>
+        </div>
+    </div>
+    <div class="sadhya-item animate-on-scroll delay-0  grid-item-row">
+        <div class="item-badge">6</div>
+        <div class="item-content">
+            <h4>Thoran </h4>
+            <p><i class="fa-solid fa-leaf"></i> 75g</p>
+        </div>
+    </div>
+    <div class="sadhya-item   grid-item-row">
+        <div class="item-badge">7</div>
+        <div class="item-content">
+            <h4>Olan </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item   grid-item-row">
+        <div class="item-badge">8</div>
+        <div class="item-content">
+            <h4>Kalan </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item   grid-item-row">
+        <div class="item-badge">9</div>
+        <div class="item-content">
+            <h4>Kootu Curry </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 75g</p>
+        </div>
+    </div>
+    <div class="sadhya-item   grid-item-row">
+        <div class="item-badge">10</div>
+        <div class="item-content">
+            <h4>Pachadi </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">11</div>
+        <div class="item-content">
+            <h4>Beetroot Pachadi </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">12</div>
+        <div class="item-content">
+            <h4>Pineapple Pachadi </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">13</div>
+        <div class="item-content">
+            <h4>Pulissery </h4>
+            <p><i class="fa-solid fa-bowl-food"></i> 1 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">14</div>
+        <div class="item-content">
+            <h4>Rasam </h4>
+            <p><i class="fa-solid fa-mug-hot"></i> 1 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">15</div>
+        <div class="item-content">
+            <h4>Moru Curry </h4>
+            <p><i class="fa-solid fa-mug-hot"></i> 1 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">16</div>
+        <div class="item-content">
+            <h4>Inji Curry <span class="item-tag">Must Try</span></h4>
+            <p><i class="fa-solid fa-spoon"></i> 25g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">17</div>
+        <div class="item-content">
+            <h4>Mango Pickle </h4>
+            <p><i class="fa-solid fa-pepper-hot"></i> 25g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">18</div>
+        <div class="item-content">
+            <h4>Lemon Pickle </h4>
+            <p><i class="fa-solid fa-lemon"></i> 25g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">19</div>
+        <div class="item-content">
+            <h4>Jaggery Chips </h4>
+            <p><i class="fa-solid fa-cookie"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">20</div>
+        <div class="item-content">
+            <h4>Banana Chips </h4>
+            <p><i class="fa-solid fa-circle-notch"></i> 50g</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">21</div>
+        <div class="item-content">
+            <h4>Pappadam </h4>
+            <p><i class="fa-solid fa-bread-slice"></i> 2 Pcs</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">22</div>
+        <div class="item-content">
+            <h4>Special Banana </h4>
+            <p><i class="fa-solid fa-seedling"></i> 1 Pc</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">23</div>
+        <img src="assets/images/sadhya_payasam.png" class="item-thumb" alt="Ada Pradhaman">
+        <div class="item-content">
+            <h4>Ada Pradhaman <span class="item-tag">Must Try</span></h4>
+            <p><i class="fa-solid fa-mug-hot"></i> 1.5 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">24</div>
+        <div class="item-content">
+            <h4>Parippu Pradhaman </h4>
+            <p><i class="fa-solid fa-mug-hot"></i> 1 Cup</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">25</div>
+        <div class="item-content">
+            <h4>Salt </h4>
+            <p><i class="fa-solid fa-cubes"></i> Pinch</p>
+        </div>
+    </div>
+    <div class="sadhya-item  hidden-item grid-item-row">
+        <div class="item-badge">26</div>
+        <div class="item-content">
+            <h4>Banana Leaf </h4>
+            <p><i class="fa-solid fa-leaf"></i> 1 Full</p>
+        </div>
+    </div>
+</div>
+<div class="text-center" style="margin-top:2rem;">
+    <button class="view-btn" id="expandMenuBtn"><i class="fa-solid fa-chevron-down"></i> View Full 26 Items</button>
+</div>
+<div class="plate-view" id="sadhyaPlate">
+<div class="plate-item" style="top:70%; left:50%;" title="Rice - 1 Portion"><span>1.</span> Rice </div>
+<div class="plate-item" style="top:60%; left:50%;" title="Parippu - 1 Cup"><span>2.</span> Parippu </div>
+<div class="plate-item" style="top:60%; left:43%;" title="Ghee - 10ml"><span>3.</span> Ghee </div>
+<div class="plate-item" style="top:50%; left:48%;" title="Sambar - 1.5 Cup"><span>4.</span> Sambar </div>
+<div class="plate-item" style="top:30%; left:45%;" title="Avial - 100g"><span>5.</span> Avial <span class="item-tag">Chef Special</span></div>
+<div class="plate-item" style="top:30%; left:55%;" title="Thoran - 75g"><span>6.</span> Thoran </div>
+<div class="plate-item" style="top:30%; left:65%;" title="Olan - 50g"><span>7.</span> Olan </div>
+<div class="plate-item" style="top:35%; left:75%;" title="Kalan - 50g"><span>8.</span> Kalan </div>
+<div class="plate-item" style="top:45%; left:80%;" title="Kootu Curry - 75g"><span>9.</span> Kootu Curry </div>
+<div class="plate-item" style="top:20%; left:40%;" title="Pachadi - 50g"><span>10.</span> Pachadi </div>
+<div class="plate-item" style="top:20%; left:50%;" title="Beetroot Pachadi - 50g"><span>11.</span> Beetroot Pachadi </div>
+<div class="plate-item" style="top:20%; left:60%;" title="Pineapple Pachadi - 50g"><span>12.</span> Pineapple Pachadi </div>
+<div class="plate-item" style="top:25%; left:30%;" title="Pulissery - 1 Cup"><span>13.</span> Pulissery </div>
+<div class="plate-item" style="top:35%; left:25%;" title="Rasam - 1 Cup"><span>14.</span> Rasam </div>
+<div class="plate-item" style="top:45%; left:20%;" title="Moru Curry - 1 Cup"><span>15.</span> Moru Curry </div>
+<div class="plate-item" style="top:55%; left:15%;" title="Inji Curry - 25g"><span>16.</span> Inji Curry <span class="item-tag">Must Try</span></div>
+<div class="plate-item" style="top:65%; left:15%;" title="Mango Pickle - 25g"><span>17.</span> Mango Pickle </div>
+<div class="plate-item" style="top:75%; left:15%;" title="Lemon Pickle - 25g"><span>18.</span> Lemon Pickle </div>
+<div class="plate-item" style="top:85%; left:25%;" title="Jaggery Chips - 50g"><span>19.</span> Jaggery Chips </div>
+<div class="plate-item" style="top:85%; left:35%;" title="Banana Chips - 50g"><span>20.</span> Banana Chips </div>
+<div class="plate-item" style="top:85%; left:45%;" title="Pappadam - 2 Pcs"><span>21.</span> Pappadam </div>
+<div class="plate-item" style="top:80%; left:85%;" title="Special Banana - 1 Pc"><span>22.</span> Special Banana </div>
+<div class="plate-item" style="top:70%; left:85%;" title="Ada Pradhaman - 1.5 Cup"><span>23.</span> Ada Pradhaman <span class="item-tag">Must Try</span></div>
+<div class="plate-item" style="top:60%; left:85%;" title="Parippu Pradhaman - 1 Cup"><span>24.</span> Parippu Pradhaman </div>
+<div class="plate-item" style="top:55%; left:85%;" title="Salt - Pinch"><span>25.</span> Salt </div>
+<div class="plate-item" style="top:50%; left:50%;" title="Banana Leaf - 1 Full"><span>26.</span> Banana Leaf </div>
+</div>
+        <div class="text-center" style="margin-top: 4rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.2rem 4rem; box-shadow: 0 10px 30px rgba(139,30,30,0.3); animation: pulse-glow 2s infinite;"><i class="fa-solid fa-phone"></i> Pre-Book Now (Call Us)</a>
+        </div>
+    </div>
+
+
+        
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Sangam Mess Logo" style="height:40px;">
+                    <span style="color:var(--text-light)">Sangam Mess</span>
+                </div>
+                <p style="margin-top:20px;">Experience the true authentic taste of South India. Traditional, nadan flavors, and festive feasts.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="offers.html">Offers & Specials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li style="line-height:1.4"><i class="fa-solid fa-location-dot"></i> 7, Kammanahalli Main Road 3rd Cross Road, Road, opp. Sansar collection Ganesh juice canter, Chinnappa Layout, Bengaluru, Karnataka 560084</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@sangammess.com</li>
+                    <li><i class="fa-regular fa-clock"></i> 7:00 AM - 10:30 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sangam Mess. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

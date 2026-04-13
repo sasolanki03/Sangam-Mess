@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Location | Sangam Mess</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contact-info h2 { color: var(--maroon); margin-bottom: 2rem; font-size: 2.5rem; }
+        .contact-details { margin-bottom: 2rem; }
+        .contact-details li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-dark);
+        }
+        .contact-details i { color: var(--primary-green); font-size: 1.5rem; width: 30px; }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--soft-gold);
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+        
+        .map-section {
+            width: 100%;
+            height: 400px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin-bottom: -4rem; /* overlaps footer */
+            position: relative;
+            z-index: 5;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="leaf-texture">
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Sangam Mess Logo">
+                <span>Sangam Mess</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="offers.html">Festival Specials</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-info animate-on-scroll slide-in-left">
+            <h2>Visit Us</h2>
+            <p style="font-size:1.1rem; margin-bottom:2rem; color:#555;">We would love to serve you! Drop by for an authentic South Indian meal or contact us for catering and special event bookings.</p>
+            
+            <ul class="contact-details">
+                <li><i class="fa-solid fa-location-dot"></i> 7, Kammanahalli Main Road 3rd Cross Road, opp. Sansar collection Ganesh juice canter, Chinnappa Layout, Bengaluru, Karnataka 560084</li>
+                <li><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</li>
+                <li><i class="fa-solid fa-envelope"></i> hello@sangammess.com</li>
+                <li><i class="fa-regular fa-clock"></i> <strong>Hours:</strong> Daily 7:00 AM - 10:30 PM</li>
+            </ul>
+
+            <h3 style="margin-top:2rem; margin-bottom:1rem; color:var(--dark-green);">Follow Us</h3>
+            <div style="font-size: 1.5rem; color:var(--primary-green); display:flex; gap:1rem;">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+
+        <div class="contact-form animate-on-scroll slide-in-right delay-200">
+            <h3 style="margin-bottom:1.5rem; color:var(--primary-green);">Send us a Message</h3>
+            <form action="#" method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Your Message or Inquiry..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Map Interactive -->
+    <div class="map-section animate-on-scroll">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15549.97223789047!2d77.62568770281699!3d13.004245647565983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16d3f27ca46b%3A0xc6c4f0f0896062f!2sKammanahalli%20Main%20Rd%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1701198533158!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Sangam Mess Logo" style="height:40px;">
+                    <span style="color:var(--text-light)">Sangam Mess</span>
+                </div>
+                <p style="margin-top:20px;">Experience the true authentic taste of South India. Traditional, nadan flavors, and festive feasts.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="offers.html">Offers & Specials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li style="line-height:1.4"><i class="fa-solid fa-location-dot"></i> 7, Kammanahalli Main Road 3rd Cross Road, Road, opp. Sansar collection Ganesh juice canter, Chinnappa Layout, Bengaluru, Karnataka 560084</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@sangammess.com</li>
+                    <li><i class="fa-regular fa-clock"></i> 7:00 AM - 10:30 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sangam Mess. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

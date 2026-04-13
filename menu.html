@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu | Sangam Mess - Authentic South Indian Dining</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
+</head>
+<body class="leaf-texture">
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Sangam Mess Logo">
+                <span>Sangam Mess</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="offers.html">Festival Specials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="page-header animate-on-scroll">
+        <h1>Our Menu</h1>
+        <p>Authentic Nadan Flavors & South Indian Delicacies</p>
+    </div>
+
+    <!-- Controls: Search, Toggles & Filters -->
+    <div class="menu-controls animate-on-scroll delay-100">
+        <div class="search-bar-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="menuSearch" placeholder="Search for dishes...">
+        </div>
+        
+        <div class="advanced-toggles">
+            <label class="switch-wrap">
+                <input type="checkbox" id="vegOnlyToggle"> 
+                <span class="slider round"></span>
+                <span class="toggle-label"><span class="veg-icon"></span> Veg Only</span>
+            </label>
+            <label class="switch-wrap">
+                <input type="checkbox" id="nonVegOnlyToggle"> 
+                <span class="slider round"></span>
+                <span class="toggle-label"><span class="nonveg-icon"></span> Non-Veg Only</span>
+            </label>
+        </div>
+
+        <div class="menu-filters">
+            <button class="filter-btn active" data-filter="all">All Items</button>
+            <button class="filter-btn" data-filter="mutton-seafood">Mutton & Seafood</button>
+            <button class="filter-btn" data-filter="chicken">Chicken Dishes</button>
+            <button class="filter-btn" data-filter="veg-egg">Veg & Egg</button>
+            <button class="filter-btn" data-filter="meals-breads">Meals, Breads & Snacks</button>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        
+        <!-- Mutton & Seafood -->
+        <div id="mutton-seafood" class="menu-section active animate-on-scroll delay-200">
+            <h3><i class="fa-solid fa-fish"></i> Mutton & Seafood</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+    <img src="assets/images/mutton.png" alt="Mutton Curry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Mutton Curry</h4>
+        <p>Traditional slow-cooked mutton in Kerala spices</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹240</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Mutton Curry" data-price="240"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/mutton.png" alt="Mutton Pepper Dry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Mutton Pepper Dry</h4>
+        <p>Spicy, roasted mutton pieces with crushed black pepper</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹270</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Mutton Pepper Dry" data-price="270"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/mutton.png" alt="Nadan Beef Roast" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Nadan Beef Roast</h4>
+        <p>Signature Kerala style beef chunks roasted with coconut slices</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹180</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Nadan Beef Roast" data-price="180"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/mutton.png" alt="Fish Curry (Ayala/Mathi)" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Fish Curry (Ayala/Mathi)</h4>
+        <p>Fresh catch from the backwaters cooked in tangy tamarind</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹150</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Fish Curry" data-price="150"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/mutton.png" alt="Crab Roast" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Crab Roast</h4>
+        <p>Whole crab cooked in rich spicy masala</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹250</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Crab Roast" data-price="250"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Chicken & Biryani -->
+        <div id="chicken" class="menu-section active animate-on-scroll">
+            <h3><i class="fa-solid fa-drumstick-bite"></i> Chicken Dishes</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+    <img src="assets/images/chicken.png" alt="Chicken Curry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Chicken Curry</h4>
+        <p>Homestyle chicken curry with coconut milk</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹120</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Chicken Curry" data-price="120"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/chicken.png" alt="Chicken Roast" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Chicken Roast</h4>
+        <p>Thick, onion-tomato based sweet & spicy semi-gravy chicken</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹140</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Chicken Roast" data-price="140"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/chicken.png" alt="Chicken Pepper Fry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Chicken Pepper Fry</h4>
+        <p>Dry tossed chicken pieces generously coated in black pepper</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹140</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Chicken Pepper Fry" data-price="140"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Veg & Egg -->
+        <div id="veg-egg" class="menu-section active animate-on-scroll">
+            <h3><i class="fa-solid fa-egg"></i> Veg & Egg</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+    <img src="assets/images/chicken.png" alt="Egg Roast" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Egg Roast</h4>
+        <p>Boiled eggs in a thick caramelized onion masala</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹60</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Egg Roast" data-price="60"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/chicken.png" alt="Egg Curry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Egg Curry</h4>
+        <p>Simple and flavorful egg curry</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹50</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Egg Curry" data-price="50"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/dosa.png" alt="Kadala Curry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Kadala Curry</h4>
+        <p>Black chickpea curry in roasted coconut gravy</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹60</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Kadala Curry" data-price="60"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/dosa.png" alt="Green Peas Curry" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Green Peas Curry</h4>
+        <p>Mild and creamy peas curry, perfect for Appam</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹60</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Green Peas Curry" data-price="60"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Meals, Breads & Snacks -->
+        <div id="meals-breads" class="menu-section active animate-on-scroll">
+            <h3><i class="fa-solid fa-bowl-rice"></i> Meals, Breads & Snacks</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+    <img src="assets/images/thali.png" alt="Special Non-Veg Meals" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="nonveg-icon"></span>Special Non-Veg Meals</h4>
+        <p>Rice, Sambar, Fish Curry Gravy, 2 Veg Sabzis, Pickle, Pappadam</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹100</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Special Non-Veg Meals" data-price="100"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/logo.png" alt="Kerala Parotta" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Kerala Parotta</h4>
+        <p>Flaky, multi-layered bread</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹20</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Kerala Parotta" data-price="20"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/logo.png" alt="Appam" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Appam</h4>
+        <p>Soft-centered, crispy-edged rice pancake</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹25</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Appam" data-price="25"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/vada.png" alt="Uzhunnu Vada (Medu Vada)" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Uzhunnu Vada (Medu Vada)</h4>
+        <p>Crispy lentil donuts served with chutney</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹15</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Medu Vada" data-price="15"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/logo.png" alt="Pazham Pori" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Pazham Pori</h4>
+        <p>Sweet plantain fritters</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹15</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Pazham Pori" data-price="15"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+                <div class="menu-item">
+    <img src="assets/images/coffee.png" alt="Filter Coffee" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+    <div class="menu-item-details">
+        <h4><span class="veg-icon"></span>Filter Coffee</h4>
+        <p>Classic strong South Indian blend</p>
+    </div>
+    <div class="menu-item-bottom">
+        <div class="menu-item-price">₹25</div>
+        <button class="btn btn-secondary add-to-cart-btn" data-name="Filter Coffee" data-price="25"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Sangam Mess Logo" style="height:40px;">
+                    <span style="color:var(--text-light)">Sangam Mess</span>
+                </div>
+                <p style="margin-top:20px;">Experience the true authentic taste of South India. Traditional, nadan flavors, and festive feasts.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="offers.html">Offers & Specials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li style="line-height:1.4"><i class="fa-solid fa-location-dot"></i> 7, Kammanahalli Main Road 3rd Cross Road, Road, opp. Sansar collection Ganesh juice canter, Chinnappa Layout, Bengaluru, Karnataka 560084</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@sangammess.com</li>
+                    <li><i class="fa-regular fa-clock"></i> 7:00 AM - 10:30 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sangam Mess. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

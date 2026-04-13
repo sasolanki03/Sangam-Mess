@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Sangam Mess</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .about-header {
+            text-align: center;
+            padding: 5rem 2rem;
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        .about-header h1 {
+            color: var(--soft-gold);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            align-items: center;
+        }
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 4px solid var(--white);
+        }
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--soft-gold);
+            border-radius: var(--border-radius);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .highlight-quote {
+            padding: 2.5rem;
+            border-left: 5px solid var(--maroon);
+            background: rgba(139, 30, 30, 0.05);
+            font-style: italic;
+            font-size: 1.4rem;
+            font-family: 'Lora', serif;
+            margin: 3rem auto;
+            color: var(--dark-green);
+            max-width: 1000px;
+            text-align: center;
+            border-right: 5px solid var(--maroon);
+        }
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="leaf-texture">
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Sangam Mess Logo">
+                <span>Sangam Mess</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="offers.html">Festival Specials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="about-header animate-on-scroll">
+        <h1>Our Story</h1>
+        <p>A journey mapping the roots of authentic South Indian cuisine.</p>
+    </div>
+
+    <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+            <h2 style="font-family: 'Lora', serif; font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1.5rem;">Authentic Flavors, Rooted in Tradition</h2>
+            <p>Welcome to <strong>Sangam Mess</strong>, where every meal is a celebration of tradition and culture. Inspired by the humble yet culturally rich "mess" culture of South India, we bring you foods cooked with love, purity, and heritage.</p>
+
+            <p>Our journey began with a simple idea: to serve homemade-tasting, authentic food in an environment that feels welcoming to families, travelers, and food lovers alike. We specialize in curating traditional recipes passed down through generations, ensuring you get the most authentic taste possible, from our Nadan Beef Roasts to our festive feasts.</p>
+        </div>
+        
+        <div class="about-image animate-on-scroll delay-200">
+            <img src="assets/images/about.png" alt="Sangam Mess Interior">
+        </div>
+    </div>
+
+    <div class="highlight-quote animate-on-scroll slide-in-left delay-100">
+        "Taste Your Roots &mdash; Authentic spices, traditional recipes, and native Kerala preparations."
+    </div>
+
+    <div class="about-grid" style="margin-top: 0;">
+        <div class="about-image animate-on-scroll delay-100" style="order: 1;">
+            <img src="assets/images/thali.png" alt="Traditional Food" style="height: 350px; object-fit: cover;">
+            <style>.about-image:nth-child(1)::before { left: -20px; top: 20px; right: auto; background-color: var(--primary-green); }</style>
+        </div>
+
+        <div class="about-text animate-on-scroll delay-200" style="order: 2;">
+            <h2 style="font-family: 'Lora', serif; font-size: 2.2rem; color: var(--primary-green); margin-bottom: 1.5rem;">Quality & Hygiene First</h2>
+            <p>From our daily specials and festive offerings like the grand <strong>Onam Sadhya</strong>, to our crispy dosas and aromatic filter coffee, hygiene and quality are our top priorities.</p>
+            <p>Experience our vibrant hospitality today. We select our ingredients carefully to preserve the authentic homemade experience that Sangam Mess is known for.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Sangam Mess Logo" style="height:40px;">
+                    <span style="color:var(--text-light)">Sangam Mess</span>
+                </div>
+                <p style="margin-top:20px;">Experience the true authentic taste of South India. Traditional, nadan flavors, and festive feasts.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="offers.html">Offers & Specials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li style="line-height:1.4"><i class="fa-solid fa-location-dot"></i> 7, Kammanahalli Main Road 3rd Cross Road, Road, opp. Sansar collection Ganesh juice canter, Chinnappa Layout, Bengaluru, Karnataka 560084</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</li>
+                    <li><i class="fa-solid fa-envelope"></i> hello@sangammess.com</li>
+                    <li><i class="fa-regular fa-clock"></i> 7:00 AM - 10:30 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sangam Mess. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>
